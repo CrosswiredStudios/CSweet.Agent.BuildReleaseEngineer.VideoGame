@@ -8,7 +8,7 @@
     "specializationKeys": ["video-game-development", "build-release-engineering", "build-diagnostics"]
   },
   "id": "com.csweet.video-game-build-release-engineer",
-  "name": "Video Game Build Release Engineer",
+  "name": "Avery Coleman",
   "version": "2.1.1",
   "publisher": { "id": "com.csweet", "name": "C-Sweet" },
   "runtime": {
@@ -83,6 +83,9 @@
   "webAccess": { "mode": "None", "rules": [] },
   "ui": [],
   "catalog": {
+    "imageUrl": "https://raw.githubusercontent.com/CrosswiredStudios/CSweet.Agent.BuildReleaseEngineer.VideoGame/main/assets/branding/portrait-v1.jpg",
+    "companyLogoUrl": "https://raw.githubusercontent.com/CrosswiredStudios/CSweet.Agent.BuildReleaseEngineer.VideoGame/main/assets/branding/csweet-icon.svg",
+    "accentColor": "#426250",
     "summary": "Owns build configuration, adapter operations, packaging, release-readiness evidence, and publication proposals.",
     "category": "Engineering",
     "role": { "key": "game-build-release-engineer", "name": "Video Game Build Release Engineer" },
