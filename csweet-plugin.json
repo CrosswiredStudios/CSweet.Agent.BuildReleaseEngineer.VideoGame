@@ -9,7 +9,7 @@
   },
   "id": "com.csweet.video-game-build-release-engineer",
   "name": "Avery Coleman",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "publisher": { "id": "com.csweet", "name": "C-Sweet" },
   "runtime": {
     "type": "dotnet-project",
@@ -71,6 +71,8 @@
     { "name": "platform.llm.chat-stream.v1", "scope": "organization", "purpose": "Produce grounded role-owned deliverables from exact project evidence." },
     { "name": "work.item.read", "scope": "organization", "purpose": "Read only the authoritative assigned board item." },
     { "name": "work.item.comment", "scope": "organization", "purpose": "Record progress, blockers, findings, and evidence on the authoritative item." },
+    { "name": "work.item.comment.update.v1", "scope": "organization", "purpose": "Correct this agent's own comment on the authoritative item." },
+    { "name": "work.item.comment.delete.v1", "scope": "organization", "purpose": "Retract this agent's own comment while its activity history is retained." },
     { "name": "platform.artifact.read.v1", "scope": "organization", "purpose": "Read authorized exact document revisions and hashes." },
     { "name": "platform.artifact.create.v1", "scope": "organization", "purpose": "Create the role-owned durable deliverable." },
     { "name": "platform.artifact.submit.v1", "scope": "organization", "purpose": "Submit the exact deliverable revision for accountable review." },
