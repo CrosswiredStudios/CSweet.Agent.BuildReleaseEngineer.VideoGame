@@ -14,6 +14,12 @@ public sealed class ManifestTests
         var manifest = await AgentManifestLoader.LoadAsync(path, CancellationToken.None);
         var agent = new SpecialistAgent();
 
+        using var tokenManifest = System.Text.Json.JsonDocument.Parse(await File.ReadAllTextAsync(path));
+        var tokenFields = tokenManifest.RootElement.GetProperty("configuration").EnumerateArray()
+            .Where(field => field.GetProperty("key").GetString() is
+                "maxContextWindowTokens" or "maxOutputTokens");
+        Assert.All(tokenFields, field => Assert.False(field.TryGetProperty("maximum", out _)));
+
         Assert.Equal(agent.AgentId, manifest.Id);
         Assert.Equal(agent.Version, manifest.Version);
         Assert.Contains(agent.PrimaryCapability, manifest.Capabilities);
