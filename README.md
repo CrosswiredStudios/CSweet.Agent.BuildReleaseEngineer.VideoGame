@@ -27,7 +27,7 @@ Keep `csweet-plugin.json` at the repository root. Import a reviewed GitHub commi
 clone this repository as an immediate child of C-Sweet's configured local agent catalog. Review
 the exact manifest, grants, activation mode, and source before approving installation.
 
-Built with `CSweet.Agent.SDK` 3.59.0 and the bundled video-game extension source.
+Built with `CSweet.Agent.SDK` 3.65.0 and the bundled video-game extension source.
 
 
 ## Extension ownership and isolated builds
@@ -50,3 +50,7 @@ Calendar-triggered assignments request the SDK claim/complete/block/release life
 The V2 assignment identifies Task, Story, Epic or Release scope. Tasks require an authorized sprint; aggregate reviews require an active delivery plan and do not invent sprint identities. Use the exact assigned branch, commit or artifact revision. Every task requires independent QA, including documents. Managers accept aggregate candidates using current evidence; task completion does not promote to main or authorize deployment.
 
 Model token settings default to 256,000 context-window tokens (maxContextWindowTokens) and 128,000 maximum output tokens (maxOutputTokens). Explicit installation settings override these defaults.
+
+## Delegation and tracking
+
+SDK 3.65.0 dispatches authenticated delegation before specialist conversation fallback. The manifest requests delegation, work tracking, directory and conversation reads, personal commitments and model interpretation. These declarations require reviewed grants; existing resource permissions and approval rules still apply. The shared SDK owns coordinator reporting and wake recovery.
