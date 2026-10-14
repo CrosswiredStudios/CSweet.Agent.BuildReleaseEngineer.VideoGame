@@ -28,12 +28,12 @@ public sealed class DeliveryExecutionTests
                 return Task.FromResult(JsonSerializer.Deserialize<DeliveryBuildV2>("{}")! with { Id = Guid.NewGuid(), RepositoryId = request.RepositoryId,
                     SourceRevision = request.SourceRevision, Configuration = request.Configuration, Outputs = [], Status = "Queued" });
             });
-        var assignment = new WorkExecutionAssignmentV2(executionId, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), project, board, null,
+        var assignment = new WorkExecutionAssignment(executionId, Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), project, board, null,
             "Release", planId, 1, null, null, 1, "Release", null, "build-readiness", 0, 1, DateTimeOffset.UtcNow.AddHours(1), "Build candidate", JsonSerializer.SerializeToElement(new { }),
             JsonSerializer.SerializeToElement(new { }), [], [], candidate) { OrganizationUserId = employee, AgentInstallationId = installation, PlanningRevision = 1,
                 PermittedOutcomes = ["approved", "changes_requested", "awaiting-build"] };
         var agent = new SpecialistAgent();
-        var result = await agent.ExecuteCapabilityAsync(new(Guid.NewGuid(), WorkManagementCapabilityNames.ExecutionRunV2,
+        var result = await agent.ExecuteCapabilityAsync(new(Guid.NewGuid(), WorkManagementCapabilityNames.ExecutionRun,
             JsonSerializer.SerializeToElement(assignment, new JsonSerializerOptions(JsonSerializerDefaults.Web)), "test"), runtime.CreateContext(assignment.OrganizationId.ToString(), installation.ToString()), CancellationToken.None);
         Assert.True(result.Succeeded, result.Error);
         var outcome = result.Value!.Value.Deserialize<WorkExecutionOutcomeV1>(new JsonSerializerOptions(JsonSerializerDefaults.Web))!;
