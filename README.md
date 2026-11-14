@@ -55,7 +55,7 @@ Model token settings default to 256,000 context-window tokens (maxContextWindowT
 
 SDK 3.65.0 dispatches authenticated delegation before specialist conversation fallback. The manifest requests delegation, work tracking, directory and conversation reads, personal commitments and model interpretation. These declarations require reviewed grants; existing resource permissions and approval rules still apply. The shared SDK owns coordinator reporting and wake recovery.
 
-## Execution contract (3.1.1)
+## Execution contract (3.1.2)
 
 Execution uses one `work.execution.run` capability and `WorkExecutionAssignment` from SDK/WorkManagement.Contracts 4.0.0. Task and aggregate scopes retain their distinct authority checks within that envelope. Upgrade the platform and executing agents together; no legacy execution adapter remains.
 
@@ -68,3 +68,8 @@ Packages stay local to the job and are never pushed to NuGet. The job summary an
 artifact record origins, source commits and SHA-256 hashes. Private source repositories require the optional
 `CSWEET_DEPENDENCY_READ_TOKEN` Actions secret with read access to the dependency repositories.
 Run `python3 scripts/test-ci-dependencies.py` for the offline resolver regression tests.
+
+Bundled extension text uses LF checkout bytes pinned in `.gitattributes`. After an intentional
+extension edit, refresh the matching SHA-256 in `extensions/video-game/extension.json` and run
+`python3 scripts/verify-bundled-extension.py --self-test`. CI and release jobs verify exact bytes;
+line endings and unexpected source edits cannot bypass provenance checks.
